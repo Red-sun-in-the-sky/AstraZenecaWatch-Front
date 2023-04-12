@@ -13,6 +13,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Link,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -45,7 +46,7 @@ function SignIn() {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   return (
-    <DefaultAuth illustrationBackground={illustration} image={illustration}>
+    <DefaultAuth illustrationBackground={illustration}>
       <Flex
         maxW={{ base: "100%", md: "max-content" }}
         w="100%"
@@ -61,7 +62,7 @@ function SignIn() {
       >
         <Box me="auto">
           <Heading color={textColor} fontSize="36px" mb="10px">
-            Sign In
+            Login
           </Heading>
           <Text
             mb="36px"
@@ -70,7 +71,7 @@ function SignIn() {
             fontWeight="400"
             fontSize="md"
           >
-            Enter your email and password to sign in!
+            Enter your email and password to login!
           </Text>
         </Box>
         <Flex
@@ -84,30 +85,6 @@ function SignIn() {
           me="auto"
           mb={{ base: "20px", md: "auto" }}
         >
-          <Button
-            fontSize="sm"
-            me="0px"
-            mb="26px"
-            py="15px"
-            h="50px"
-            borderRadius="16px"
-            bg={googleBg}
-            color={googleText}
-            fontWeight="500"
-            _hover={googleHover}
-            _active={googleActive}
-            _focus={googleActive}
-          >
-            <Icon as={FcGoogle} w="20px" h="20px" me="10px" />
-            Sign in with Google
-          </Button>
-          <Flex align="center" mb="25px">
-            <HSeparator />
-            <Text color="gray.400" mx="14px">
-              or
-            </Text>
-            <HSeparator />
-          </Flex>
           <FormControl>
             <FormLabel
               display="flex"
@@ -125,8 +102,9 @@ function SignIn() {
               fontSize="sm"
               ms={{ base: "0px", md: "0px" }}
               type="email"
-              placeholder="mail@simmmple.com"
+              placeholder="mail@test.com"
               mb="24px"
+              value="redsun@gmail.com"
               fontWeight="500"
               size="lg"
             />
@@ -143,11 +121,12 @@ function SignIn() {
               <Input
                 isRequired={true}
                 fontSize="sm"
-                placeholder="Min. 8 characters"
+                placeholder="Password"
                 mb="24px"
                 size="lg"
                 type={show ? "text" : "password"}
                 variant="auth"
+                value="pass"
               />
               <InputRightElement display="flex" alignItems="center" mt="4px">
                 <Icon
@@ -175,7 +154,7 @@ function SignIn() {
                   Keep me logged in
                 </FormLabel>
               </FormControl>
-              <NavLink to="/auth/forgot-password">
+              <Link>
                 <Text
                   color={textColorBrand}
                   fontSize="sm"
@@ -184,18 +163,20 @@ function SignIn() {
                 >
                   Forgot password?
                 </Text>
-              </NavLink>
+              </Link>
             </Flex>
-            <Button
-              fontSize="sm"
-              variant="brand"
-              fontWeight="500"
-              w="100%"
-              h="50"
-              mb="24px"
-            >
-              Sign In
-            </Button>
+            <NavLink to="/admin">
+              <Button
+                fontSize="sm"
+                variant="brand"
+                fontWeight="500"
+                w="100%"
+                h="50"
+                mb="24px"
+              >
+                Login
+              </Button>
+            </NavLink>
           </FormControl>
           <Flex
             flexDirection="column"
@@ -206,7 +187,7 @@ function SignIn() {
           >
             <Text color={textColorDetails} fontWeight="400" fontSize="14px">
               Not registered yet?
-              <NavLink to="/auth/sign-up">
+              <Link>
                 <Text
                   color={textColorBrand}
                   as="span"
@@ -215,7 +196,7 @@ function SignIn() {
                 >
                   Create an Account
                 </Text>
-              </NavLink>
+              </Link>
             </Text>
           </Flex>
         </Flex>
