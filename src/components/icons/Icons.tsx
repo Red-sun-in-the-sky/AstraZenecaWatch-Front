@@ -461,17 +461,6 @@ export const SpotifyLogo = createIcon({
   ),
 });
 
-export const HorizonLogo = createIcon({
-  displayName: "horizonLogo",
-  viewBox: "0 0 179 20",
-  path: (
-    <path
-      d="M10,30 L60,30 L80,10 L120,10 L140,30 L190,30 L140,40 L80,40 L60,50 L10,50 Z"
-      fill="currentColor"
-    />
-  ),
-});
-
 export const SupportIcon = createIcon({
   // Doesn't display the full icon without w and h being specified
   displayName: "BuildIcon",
