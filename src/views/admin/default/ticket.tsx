@@ -23,72 +23,86 @@ export const TicketComponent = (props: {
           setShowData={setShowData}
           data={{
             name: "HR Critical Service 1",
+            service: "HR Critical Service 1",
             type: "incident",
-            services: [
-              {
-                name: "Finance Critical Service 1",
-                status: "green",
-              },
-              {
-                name: "Finance Critical Service 2",
-                status: "yellow",
-              },
-              {
-                name: "Finance Critical Service 3",
-                status: "green",
-              },
-              {
-                name: "Finance Critical Service 4",
-                status: "green",
-              },
-              {
-                name: "Finance Critical Service 5",
-                status: "red",
-              },
-            ],
+            prority: "P1",
+            incidentNumber: "INC288292",
+            desc: "Labeling System is down",
+            status: "Resolved",
+            systemStatus: "green",
           }}
           startContent={
             <IconBox
               w="56px"
               h="56px"
-              bg="green.300"
+              bg="green.400"
               icon={<Icon w="32px" h="32px" as={MdCheck} />}
             />
           }
-          value="HR Critical Service 1"
-          name="Labeling System is down"
+          name="HR Critical Service 1"
+          value="Labeling System is down"
         />
         <MiniStatistics
           setData={setData}
           setShowData={setShowData}
+          data={{
+            name: "HR Critiial Service 13",
+            service: "HR Critiial Service 13",
+            type: "incident",
+            prority: "P2",
+            incidentNumber: "INC288276",
+            desc: "Users unable to access to internet",
+            status: "In progress",
+            systemStatus: "yellow",
+          }}
           startContent={
             <IconBox
               w="56px"
               h="56px"
-              bg="yellow.300"
+              bg="yellow.400"
               icon={<Icon w="32px" h="32px" as={MdRemove} />}
             />
           }
-          value="HR Critical Service 13"
-          name="Users unable to access to internet"
+          name="HR Critical Service 13"
+          value="Users unable to access to internet"
         />
         <MiniStatistics
           setData={setData}
           setShowData={setShowData}
+          data={{
+            name: "Finance Critical Service 5",
+            service: "Finance Critical Service 5",
+            type: "incident",
+            prority: "P2",
+            incidentNumber: "INC288222",
+            desc: "Finance Service is loading slow",
+            status: "In progress",
+            systemStatus: "yellow",
+          }}
           startContent={
             <IconBox
               w="56px"
               h="56px"
-              bg="yellow.300"
+              bg="yellow.400"
               icon={<Icon w="32px" h="32px" as={MdRemove} />}
             />
           }
-          value="Finance Critical Service 5"
-          name="Finance Service is loading slow"
+          name="Finance Critical Service 5"
+          value="Finance Service is loading slow"
         />
         <MiniStatistics
           setData={setData}
           setShowData={setShowData}
+          data={{
+            name: "Dev Critical Service 3",
+            service: "Dev Critical Service 3",
+            type: "incident",
+            prority: "P1",
+            incidentNumber: "INC288255",
+            desc: "Users unable to access to the main repository",
+            status: "In progress",
+            systemStatus: "red",
+          }}
           startContent={
             <IconBox
               w="56px"
@@ -97,8 +111,8 @@ export const TicketComponent = (props: {
               icon={<Icon w="32px" h="32px" as={MdClose} />}
             />
           }
-          value="Dev Critical Service 3"
-          name="Users unable to access to the main repository"
+          name="Dev Critical Service 3"
+          value="Users unable to access to the main repository"
         />
       </SimpleGrid>
     </>

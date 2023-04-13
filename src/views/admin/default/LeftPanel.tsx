@@ -9,6 +9,7 @@ import {
   List,
   ListItem,
   VStack,
+  Box,
 } from "@chakra-ui/react";
 import Card from "components/card/Card";
 import { useEffect, useState } from "react";
@@ -27,12 +28,14 @@ export const LeftPanel = (props: {
   renderData?: any;
 }) => {
   const { brandColor, setShowData, data } = props;
-  const [renderData, setRenderData] = useState([<></>]);
+
+  const [renderBTG, setrenderBTG] = useState([<></>]);
+  const [renderTicket, setrenderTicket] = useState(<></>);
+
   const [isHovering, setHovering] = useState(false);
   const handleMouseEnter = () => setHovering(true);
 
-  // Render BTG services
-  useEffect(() => {
+  const btgLoadData = () => {
     const { services } = data;
     const render = services.map((service: any, i: any) => {
       let color = "green.500";
@@ -81,8 +84,38 @@ export const LeftPanel = (props: {
         </ListItem>
       );
     });
+    setrenderBTG(render);
+  };
 
-    setRenderData(render);
+  const ticketLoadData = () => {
+    setrenderTicket(
+      <VStack align="start">
+        <Heading size="sm" color={data.systemStatus + ".400"}>
+          {data.status}
+        </Heading>
+        <HStack align="center">
+          <Heading size="md"> Business Service: </Heading>
+          <Text>{data.service}</Text>
+        </HStack>
+        <HStack align="center">
+          <Heading size="md"> Priority: </Heading>
+          <Text>{data.prority}</Text>
+        </HStack>
+        <HStack align="center">
+          <Heading size="md"> Incident Number: </Heading>
+          <Text>{data.incidentNumber}</Text>
+        </HStack>
+        <HStack align="center">
+          <Heading size="md"> Description: </Heading>
+          <Text>{data.desc}</Text>
+        </HStack>
+      </VStack>
+    );
+  };
+
+  // Render BTG services
+  useEffect(() => {
+    data.type === "btg" ? btgLoadData() : ticketLoadData();
   }, [data]);
 
   return (
@@ -93,7 +126,7 @@ export const LeftPanel = (props: {
             base: "2xl",
           }}
         >
-          {data.name}
+          {data?.name || ""}
         </Heading>
         <CloseButton
           w="30px"
@@ -106,9 +139,9 @@ export const LeftPanel = (props: {
       </Flex>
       <Divider mt={4} mb={8} />
       {data.type === "btg" ? (
-        <List spacing={3}>{renderData}</List>
+        <List spacing={3}>{renderBTG}</List>
       ) : (
-        <Text>Pepepe</Text>
+        <Box>{renderTicket}</Box>
       )}
     </Card>
   );
