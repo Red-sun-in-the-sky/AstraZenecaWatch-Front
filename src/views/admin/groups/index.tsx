@@ -14,7 +14,7 @@ import {
 import GroupsCard from "views/admin/groups/components/GroupsCard";
 import { SearchBar } from "components/navbar/searchBar/SearchBar";
 import { useState } from "react";
-import { MdEmojiPeople, MdArrowBack } from "react-icons/md";
+import { MdGroups, MdArrowBack } from "react-icons/md";
 import IconBox from "components/icons/IconBox";
 import { BTGComponentFavorites } from "views/admin/favorites/components/btg";
 import { RightPanel } from "views/admin/favorites/components/RightPanel";
@@ -77,7 +77,7 @@ export default function Groups() {
                     <Icon
                       w="32px"
                       h="32px"
-                      as={MdEmojiPeople}
+                      as={MdGroups}
                       color={brandColor}
                     />
                   }
@@ -96,7 +96,7 @@ export default function Groups() {
                     <Icon
                       w="32px"
                       h="32px"
-                      as={MdEmojiPeople}
+                      as={MdGroups}
                       color={brandColor}
                     />
                   }
@@ -115,7 +115,7 @@ export default function Groups() {
                     <Icon
                       w="32px"
                       h="32px"
-                      as={MdEmojiPeople}
+                      as={MdGroups}
                       color={brandColor}
                     />
                   }
