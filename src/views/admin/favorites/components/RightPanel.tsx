@@ -12,11 +12,8 @@ import {
 } from "@chakra-ui/react";
 import Card from "components/card/Card";
 import { useEffect, useState } from "react";
-import {
-  MdCancel,
-  MdCheckCircle,
-  MdRemoveCircle,
-} from "react-icons/md";
+import { useHistory } from "react-router-dom";
+import { MdCancel, MdCheckCircle, MdRemoveCircle } from "react-icons/md";
 
 export const RightPanel = (props: {
   data: any;
@@ -26,6 +23,7 @@ export const RightPanel = (props: {
 }) => {
   const { brandColor, setShowData, data } = props;
   const [renderData, setRenderData] = useState([<></>]);
+  let history = useHistory();
 
   // Render BTG services
   useEffect(() => {
@@ -48,7 +46,13 @@ export const RightPanel = (props: {
 
       return (
         <ListItem key={i} borderBottom=".1px solid #dadada" my={6}>
-          <Flex justify="space-between">
+          <Flex
+            justify="space-between"
+            cursor="pointer"
+            onClick={() => {
+              history.push("/admin/services");
+            }}
+          >
             <VStack align="start">
               <Heading size="sm">{service.name}</Heading>
               <Heading size="sm" color={color}>

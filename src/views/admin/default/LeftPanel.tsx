@@ -20,6 +20,7 @@ import {
   MdStar,
   MdStarBorder,
 } from "react-icons/md";
+import { useHistory } from "react-router-dom";
 
 export const LeftPanel = (props: {
   data: any;
@@ -34,9 +35,11 @@ export const LeftPanel = (props: {
 
   const [isHovering, setHovering] = useState(false);
   const handleMouseEnter = () => setHovering(true);
+  let history = useHistory();
 
   const btgLoadData = () => {
     const { services } = data;
+
     const render = services.map((service: any, i: any) => {
       let color = "green.500";
       let text = "Service available";
@@ -60,7 +63,13 @@ export const LeftPanel = (props: {
 
       return (
         <ListItem key={i} borderBottom=".1px solid #dadada" my={6}>
-          <Flex justify="space-between">
+          <Flex
+            justify="space-between"
+            cursor="pointer"
+            onClick={() => {
+              history.push("/admin/services");
+            }}
+          >
             <VStack align="start">
               <Heading size="sm">{service.name}</Heading>
               <Heading size="sm" color={color}>

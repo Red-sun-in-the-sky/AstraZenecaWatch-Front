@@ -6,6 +6,7 @@ import {
   MdOutlineShoppingCart,
   MdAddToPhotos,
   MdFavorite,
+  MdOutlineLan,
 } from "react-icons/md";
 
 // Admin Imports
@@ -17,6 +18,7 @@ import DataTables from "views/admin/dataTables";
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
 import Favorites from "views/admin/favorites";
+import Services from "views/admin/services";
 
 const routes = [
   {
@@ -77,6 +79,13 @@ const routes = [
     component: Favorites,
     secondary: true,
   },
+  {
+    name: "Services",
+    layout: "/admin",
+    path: "/services",
+    icon: <Icon as={MdFavorite} width="20px" height="20px" color="inherit" />,
+    component: Services,
+  },
 ];
 
 export const navbarRoutes = [
@@ -103,6 +112,13 @@ export const navbarRoutes = [
     ),
     path: "/data-tables",
     component: DataTables,
+  },
+  {
+    name: "Services",
+    layout: "/admin",
+    path: "/services",
+    icon: <Icon as={MdOutlineLan} width="20px" height="20px" color="inherit" />,
+    component: Services,
   },
 ];
 

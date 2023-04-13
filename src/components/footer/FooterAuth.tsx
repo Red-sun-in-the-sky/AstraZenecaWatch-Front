@@ -35,12 +35,11 @@ export default function Footer() {
         }}
         mb={{ base: "20px", lg: "0px" }}
       >
-        {" "}
-        &copy; {new Date().getFullYear()}
+        {new Date().getFullYear()}
         <Text as="span" fontWeight="500" ms="4px">
-          Zeneca Watch. Made with love by
+          AstraZeneca Watch. Made with love by
           <Link mx="3px" color={textColor} target="_blank" fontWeight="700">
-            Red sun in the sky!
+            AstraZeneca!
           </Link>
         </Text>
       </Text>

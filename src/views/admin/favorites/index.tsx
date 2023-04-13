@@ -18,7 +18,6 @@ export default function Favorites() {
         gap={{ base: "20px", xl: "20px" }}
         display={{ base: "block", xl: "grid" }}
       >
-
         {/* BTGs section */}
         <BTGComponentFavorites
           boxBg={boxBg}
