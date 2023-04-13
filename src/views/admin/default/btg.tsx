@@ -1,11 +1,4 @@
-import {
-  HStack,
-  Icon,
-  SimpleGrid,
-  Tag,
-  TagLabel,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Icon, SimpleGrid } from "@chakra-ui/react";
 import MiniStatistics from "components/card/MiniStatistics";
 import IconBox from "components/icons/IconBox";
 import {
@@ -32,6 +25,31 @@ export const BTGComponent = (props: {
       >
         <MiniStatistics
           setData={setData}
+          data={{
+            name: "Human Resources",
+            services: [
+              {
+                name: "Human Resources Critical Service 1",
+                status: "green",
+              },
+              {
+                name: "Human Resources Critical Service 2",
+                status: "yellow",
+              },
+              {
+                name: "Human Resources Critical Service 3",
+                status: "green",
+              },
+              {
+                name: "Human Resources Critical Service 4",
+                status: "green",
+              },
+              {
+                name: "Human Resources Critical Service 5",
+                status: "red",
+              },
+            ],
+          }}
           setShowData={setShowData}
           startContent={
             <IconBox
@@ -48,6 +66,31 @@ export const BTGComponent = (props: {
         <MiniStatistics
           setData={setData}
           setShowData={setShowData}
+          data={{
+            name: "Finance",
+            services: [
+              {
+                name: "Finance Critical Service 1",
+                status: "green",
+              },
+              {
+                name: "Finance Critical Service 2",
+                status: "yellow",
+              },
+              {
+                name: "Finance Critical Service 3",
+                status: "green",
+              },
+              {
+                name: "Finance Critical Service 4",
+                status: "green",
+              },
+              {
+                name: "Finance Critical Service 5",
+                status: "red",
+              },
+            ],
+          }}
           startContent={
             <IconBox
               w="56px"
@@ -68,6 +111,31 @@ export const BTGComponent = (props: {
         <MiniStatistics
           setData={setData}
           setShowData={setShowData}
+          data={{
+            name: "Development",
+            services: [
+              {
+                name: "Development Critical Service 1",
+                status: "green",
+              },
+              {
+                name: "Development Critical Service 2",
+                status: "yellow",
+              },
+              {
+                name: "Development Critical Service 3",
+                status: "green",
+              },
+              {
+                name: "Development Critical Service 4",
+                status: "green",
+              },
+              {
+                name: "Development Critical Service 5",
+                status: "red",
+              },
+            ],
+          }}
           startContent={
             <IconBox
               w="56px"
@@ -83,6 +151,31 @@ export const BTGComponent = (props: {
         <MiniStatistics
           setData={setData}
           setShowData={setShowData}
+          data={{
+            name: "Research",
+            services: [
+              {
+                name: "Research Critical Service 1",
+                status: "green",
+              },
+              {
+                name: "Research Critical Service 2",
+                status: "yellow",
+              },
+              {
+                name: "Research Critical Service 3",
+                status: "green",
+              },
+              {
+                name: "Research Critical Service 4",
+                status: "green",
+              },
+              {
+                name: "Research Critical Service 5",
+                status: "red",
+              },
+            ],
+          }}
           startContent={
             <IconBox
               w="56px"
@@ -96,6 +189,31 @@ export const BTGComponent = (props: {
         <MiniStatistics
           setData={setData}
           setShowData={setShowData}
+          data={{
+            name: "Operation",
+            services: [
+              {
+                name: "Operation Critical Service 1",
+                status: "green",
+              },
+              {
+                name: "Operation Critical Service 2",
+                status: "yellow",
+              },
+              {
+                name: "Operation Critical Service 3",
+                status: "green",
+              },
+              {
+                name: "Operation Critical Service 4",
+                status: "green",
+              },
+              {
+                name: "Operation Critical Service 5",
+                status: "red",
+              },
+            ],
+          }}
           startContent={
             <IconBox
               w="56px"

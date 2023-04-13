@@ -19,6 +19,7 @@ export default function Default(props: {
   value: string | number;
   setData: any;
   setShowData: any;
+  data?: any;
 }) {
   const {
     startContent,
@@ -28,6 +29,7 @@ export default function Default(props: {
     value,
     setData,
     setShowData,
+    data,
   } = props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "secondaryGray.600";
@@ -37,31 +39,7 @@ export default function Default(props: {
   const handleMouseEnter = () => setHovering(true);
   const handleMouseLeave = () => setHovering(false);
   const handleMouseDown = () => {
-    setData({
-      name: value,
-      services: [
-        {
-          name: value + " Critical Service 1",
-          status: "green",
-        },
-        {
-          name: value + " Critical Service 2",
-          status: "yellow",
-        },
-        {
-          name: value + " Critical Service 3",
-          status: "green",
-        },
-        {
-          name: value + " Critical Service 4",
-          status: "green",
-        },
-        {
-          name: value + " Critical Service 5",
-          status: "red",
-        },
-      ],
-    });
+    setData(data);
     setShowData(true);
   };
 
@@ -87,15 +65,6 @@ export default function Default(props: {
         {startContent}
 
         <Stat my="auto" ms={startContent ? "18px" : "0px"}>
-          <StatLabel
-            lineHeight="100%"
-            color={textColorSecondary}
-            fontSize={{
-              base: "sm",
-            }}
-          >
-            {name}
-          </StatLabel>
           <StatNumber
             color={textColor}
             fontSize={{
@@ -104,6 +73,15 @@ export default function Default(props: {
           >
             {value}
           </StatNumber>
+          <StatLabel
+            lineHeight="100%"
+            color={textColorSecondary}
+            fontSize={{
+              base: "md",
+            }}
+          >
+            {name}
+          </StatLabel>
           {growth ? (
             <Flex align="center">
               <Text color="green.500" fontSize="xs" fontWeight="700" me="5px">

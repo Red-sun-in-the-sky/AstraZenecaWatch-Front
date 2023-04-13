@@ -1,20 +1,7 @@
-import {
-  HStack,
-  Icon,
-  SimpleGrid,
-  Tag,
-  TagLabel,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Icon, SimpleGrid } from "@chakra-ui/react";
 import MiniStatistics from "components/card/MiniStatistics";
 import IconBox from "components/icons/IconBox";
-import {
-  MdComputer,
-  MdEmojiPeople,
-  MdMail,
-  MdOutlineAttachMoney,
-  MdSearch,
-} from "react-icons/md";
+import { MdCheck, MdClose, MdRemove } from "react-icons/md";
 
 export const TicketComponent = (props: {
   boxBg: any;
@@ -38,13 +25,12 @@ export const TicketComponent = (props: {
             <IconBox
               w="56px"
               h="56px"
-              bg={boxBg}
-              icon={
-                <Icon w="32px" h="32px" as={MdEmojiPeople} color={brandColor} />
-              }
+              bg="green.300"
+              icon={<Icon w="32px" h="32px" as={MdCheck} />}
             />
           }
-          value="Human Resources"
+          value="HR Critical Service 1"
+          name="Labeling System is down"
         />
         <MiniStatistics
           setData={setData}
@@ -53,18 +39,12 @@ export const TicketComponent = (props: {
             <IconBox
               w="56px"
               h="56px"
-              bg={boxBg}
-              icon={
-                <Icon
-                  w="32px"
-                  h="32px"
-                  as={MdOutlineAttachMoney}
-                  color={brandColor}
-                />
-              }
+              bg="yellow.300"
+              icon={<Icon w="32px" h="32px" as={MdRemove} />}
             />
           }
-          value="Finance"
+          value="HR Critical Service 13"
+          name="Users unable to access to internet"
         />
         <MiniStatistics
           setData={setData}
@@ -73,13 +53,12 @@ export const TicketComponent = (props: {
             <IconBox
               w="56px"
               h="56px"
-              bg={boxBg}
-              icon={
-                <Icon w="32px" h="32px" as={MdComputer} color={brandColor} />
-              }
+              bg="yellow.300"
+              icon={<Icon w="32px" h="32px" as={MdRemove} />}
             />
           }
-          value="Development"
+          value="Finance Critical Service 5"
+          name="Finance Service is loading slow"
         />
         <MiniStatistics
           setData={setData}
@@ -88,11 +67,12 @@ export const TicketComponent = (props: {
             <IconBox
               w="56px"
               h="56px"
-              bg={boxBg}
-              icon={<Icon w="32px" h="32px" as={MdSearch} color={brandColor} />}
+              bg="red.400"
+              icon={<Icon w="32px" h="32px" as={MdClose} />}
             />
           }
-          value="Research"
+          value="Dev Critical Service 3"
+          name="Users unable to access to the main repository"
         />
       </SimpleGrid>
     </>

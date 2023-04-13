@@ -11,7 +11,7 @@ export function SidebarBrand() {
 
   return (
     <Flex alignItems="center" flexDirection="column">
-      <Image src={zenecaWatchLogo} mr="20px" />
+      <Image src={zenecaWatchLogo} w="80%" mr="20px" mb="20px" />
       <HSeparator mb="20px" />
     </Flex>
   );
