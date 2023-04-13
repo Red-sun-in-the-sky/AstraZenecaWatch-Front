@@ -15,7 +15,7 @@ import { LeftPanel } from "./LeftPanel";
 export default function UserReports() {
   // Chakra Color Mode
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
-  const brandColor = useColorModeValue("brand.500", "white");
+  const brandColor = useColorModeValue("#980152", "white");
 
   const [showData, setShowData] = useState(false);
   const [data, setData] = useState({ name: "", services: [] });
@@ -34,9 +34,9 @@ export default function UserReports() {
               size="lg"
               key="btg"
               borderRadius="full"
-              variant="outline"
-              colorScheme="blue"
               style={{
+                color: "#980152",
+                outlineColor: "#980152",
                 cursor: isHovering ? "pointer" : "default",
                 transition: isHovering ? "top ease 0.5s" : "",
               }}
@@ -49,9 +49,9 @@ export default function UserReports() {
               size="lg"
               key="ticket"
               borderRadius="full"
-              variant="outline"
-              colorScheme="blue"
               style={{
+                color: "#980152",
+                outlineColor: "#980152",
                 cursor: isHovering ? "pointer" : "default",
                 transition: isHovering ? "top ease 0.5s" : "",
               }}

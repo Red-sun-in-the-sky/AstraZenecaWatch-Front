@@ -105,7 +105,7 @@ export default function HeaderLinks(props: { secondary: boolean }) {
             _hover={{ cursor: "pointer" }}
             color="white"
             name="Astra Zeneca"
-            bg="#11047A"
+            bg="#fca404"
             size="sm"
             w="40px"
             h="40px"

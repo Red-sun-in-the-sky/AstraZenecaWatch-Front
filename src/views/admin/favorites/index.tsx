@@ -5,7 +5,7 @@ import { RightPanel } from "./components/RightPanel";
 
 export default function Favorites() {
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
-  const brandColor = useColorModeValue("brand.500", "white");
+  const brandColor = useColorModeValue("#980152", "white");
 
   const [showData, setShowData] = useState(false);
   const [data, setData] = useState({ name: "", services: [] });
