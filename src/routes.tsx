@@ -4,12 +4,12 @@ import {
   MdPerson,
   MdHome,
   MdLock,
-  MdOutlineShoppingCart,
+  MdFavorite,
 } from "react-icons/md";
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
-import NFTMarketplace from "views/admin/marketplace";
+import Favorites from "views/admin/favorites";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/dataTables";
 
@@ -25,18 +25,11 @@ const routes = [
     component: MainDashboard,
   },
   {
-    name: "NFT Marketplace",
+    name: "Favorites",
     layout: "/admin",
-    path: "/nft-marketplace",
-    icon: (
-      <Icon
-        as={MdOutlineShoppingCart}
-        width="20px"
-        height="20px"
-        color="inherit"
-      />
-    ),
-    component: NFTMarketplace,
+    path: "/favorites",
+    icon: <Icon as={MdFavorite} width="20px" height="20px" color="inherit" />,
+    component: Favorites,
     secondary: true,
   },
   {
