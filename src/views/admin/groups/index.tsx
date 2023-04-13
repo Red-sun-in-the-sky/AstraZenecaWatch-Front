@@ -27,7 +27,7 @@ export default function Groups() {
   );
 
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
-  const brandColor = useColorModeValue("brand.500", "white");
+  const brandColor = useColorModeValue("#980152", "white");
 
   const [data, setData] = useState({ name: "", services: [] });
   const [showData, setShowData] = useState(false);
@@ -54,7 +54,9 @@ export default function Groups() {
           >
             <SearchBar />
             <ButtonGroup spacing="2">
-              <Button colorScheme="blue">+ Create</Button>
+              <Button textColor="white" bgColor={brandColor}>
+                + Create
+              </Button>
               <Button variant="outline">Join</Button>
             </ButtonGroup>
           </Flex>
@@ -74,12 +76,7 @@ export default function Groups() {
                   h="56px"
                   bg={boxBg}
                   icon={
-                    <Icon
-                      w="32px"
-                      h="32px"
-                      as={MdGroups}
-                      color={brandColor}
-                    />
+                    <Icon w="32px" h="32px" as={MdGroups} color={brandColor} />
                   }
                 />
               }
@@ -93,12 +90,7 @@ export default function Groups() {
                   h="56px"
                   bg={boxBg}
                   icon={
-                    <Icon
-                      w="32px"
-                      h="32px"
-                      as={MdGroups}
-                      color={brandColor}
-                    />
+                    <Icon w="32px" h="32px" as={MdGroups} color={brandColor} />
                   }
                 />
               }
@@ -112,12 +104,7 @@ export default function Groups() {
                   h="56px"
                   bg={boxBg}
                   icon={
-                    <Icon
-                      w="32px"
-                      h="32px"
-                      as={MdGroups}
-                      color={brandColor}
-                    />
+                    <Icon w="32px" h="32px" as={MdGroups} color={brandColor} />
                   }
                 />
               }
