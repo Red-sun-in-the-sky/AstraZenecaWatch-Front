@@ -47,34 +47,6 @@ export const BTGComponentFavorites = (props: {
       ],
     },
     {
-      name: "Development",
-      type: "btg",
-      services: [
-        {
-          name: "Development Critical Service 2",
-          status: "yellow",
-        },
-        {
-          name: "Development Critical Service 4",
-          status: "green",
-        },
-      ],
-    },
-    {
-      name: "Research",
-      type: "btg",
-      services: [
-        {
-          name: "Research Critical Service 2",
-          status: "yellow",
-        },
-        {
-          name: "Research Critical Service 4",
-          status: "green",
-        },
-      ],
-    },
-    {
       name: "Operation",
       type: "btg",
       services: [
@@ -138,36 +110,6 @@ export const BTGComponentFavorites = (props: {
           setData={setData}
           setShowData={setShowData}
           data={data[2]}
-          startContent={
-            <IconBox
-              w="56px"
-              h="56px"
-              bg={boxBg}
-              icon={
-                <Icon w="32px" h="32px" as={MdComputer} color={brandColor} />
-              }
-            />
-          }
-          value="Development"
-        />
-        <MiniStatistics
-          setData={setData}
-          setShowData={setShowData}
-          data={data[3]}
-          startContent={
-            <IconBox
-              w="56px"
-              h="56px"
-              bg={boxBg}
-              icon={<Icon w="32px" h="32px" as={MdSearch} color={brandColor} />}
-            />
-          }
-          value="Research"
-        />
-        <MiniStatistics
-          setData={setData}
-          setShowData={setShowData}
-          data={data[4]}
           startContent={
             <IconBox
               w="56px"
