@@ -6,6 +6,7 @@ import {
   MdOutlineShoppingCart,
   MdAddToPhotos,
   MdFavorite,
+  MdGroups,
   MdOutlineLan,
 } from "react-icons/md";
 
@@ -14,11 +15,12 @@ import MainDashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/dataTables";
+import Favorites from "views/admin/favorites";
+import Groups from "views/admin/groups";
+import Services from "views/admin/services";
 
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
-import Favorites from "views/admin/favorites";
-import Services from "views/admin/services";
 
 const routes = [
   {
@@ -105,13 +107,13 @@ export const navbarRoutes = [
     secondary: true,
   },
   {
-    name: "Create Dashboard",
+    name: "Groups",
     layout: "/admin",
+    path: "/groups",
     icon: (
-      <Icon as={MdAddToPhotos} width="20px" height="20px" color="inherit" />
+      <Icon as={MdGroups} width="20px" height="20px" color="inherit" />
     ),
-    path: "/data-tables",
-    component: DataTables,
+    component: Groups,
   },
   {
     name: "Services",
