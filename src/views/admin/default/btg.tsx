@@ -27,6 +27,7 @@ export const BTGComponent = (props: {
           setData={setData}
           data={{
             name: "Human Resources",
+            type: "btg",
             services: [
               {
                 name: "Human Resources Critical Service 1",
@@ -68,6 +69,7 @@ export const BTGComponent = (props: {
           setShowData={setShowData}
           data={{
             name: "Finance",
+            type: "btg",
             services: [
               {
                 name: "Finance Critical Service 1",
@@ -113,6 +115,7 @@ export const BTGComponent = (props: {
           setShowData={setShowData}
           data={{
             name: "Development",
+            type: "btg",
             services: [
               {
                 name: "Development Critical Service 1",
@@ -153,6 +156,7 @@ export const BTGComponent = (props: {
           setShowData={setShowData}
           data={{
             name: "Research",
+            type: "btg",
             services: [
               {
                 name: "Research Critical Service 1",
@@ -191,6 +195,7 @@ export const BTGComponent = (props: {
           setShowData={setShowData}
           data={{
             name: "Operation",
+            type: "btg",
             services: [
               {
                 name: "Operation Critical Service 1",

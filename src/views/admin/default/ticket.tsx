@@ -21,6 +21,32 @@ export const TicketComponent = (props: {
         <MiniStatistics
           setData={setData}
           setShowData={setShowData}
+          data={{
+            name: "HR Critical Service 1",
+            type: "incident",
+            services: [
+              {
+                name: "Finance Critical Service 1",
+                status: "green",
+              },
+              {
+                name: "Finance Critical Service 2",
+                status: "yellow",
+              },
+              {
+                name: "Finance Critical Service 3",
+                status: "green",
+              },
+              {
+                name: "Finance Critical Service 4",
+                status: "green",
+              },
+              {
+                name: "Finance Critical Service 5",
+                status: "red",
+              },
+            ],
+          }}
           startContent={
             <IconBox
               w="56px"

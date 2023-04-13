@@ -1,38 +1,16 @@
 import {
   Box,
-  Flex,
   Grid,
   GridItem,
-  Icon,
-  SimpleGrid,
   useColorModeValue,
-  Heading,
-  CloseButton,
-  Text,
-  List,
-  ListItem,
-  ListIcon,
-  Divider,
-  VStack,
   HStack,
   Tag,
   TagLabel,
 } from "@chakra-ui/react";
-import Card from "components/card/Card";
 import { BTGComponent } from "./btg";
 import { TicketComponent } from "./ticket";
-import MiniStatistics from "components/card/MiniStatistics";
-import IconBox from "components/icons/IconBox";
-import { useEffect, useState } from "react";
-import {
-  MdCancel,
-  MdCheckCircle,
-  MdClose,
-  MdMinimize,
-  MdRemoveCircle,
-  MdStar,
-  MdStarBorder,
-} from "react-icons/md";
+import { useState } from "react";
+import { LeftPanel } from "./LeftPanel";
 
 export default function UserReports() {
   // Chakra Color Mode
@@ -41,65 +19,10 @@ export default function UserReports() {
 
   const [showData, setShowData] = useState(false);
   const [data, setData] = useState({ name: "", services: [] });
-  const [renderData, setRenderData] = useState([<></>]);
 
   const [selected, setselected] = useState("btg");
 
-  useEffect(() => {
-    const { services } = data;
-    const render = services.map((service, i) => {
-      let color = "green.500";
-      let text = "Service available";
-      let icon = MdCheckCircle;
-      let star = MdStar;
-
-      if (i % 2 === 0) {
-        star = MdStarBorder;
-      }
-
-      if (service.status === "yellow") {
-        color = "yellow.400";
-        text = "Service disruption";
-        icon = MdRemoveCircle;
-      }
-      if (service.status === "red") {
-        color = "red.500";
-        text = "Service outage";
-        icon = MdCancel;
-      }
-
-      return (
-        <ListItem key={i} borderBottom=".1px solid #dadada" my={6}>
-          <Flex justify="space-between">
-            <VStack align="start">
-              <Heading size="sm">{service.name}</Heading>
-              <Heading size="sm" color={color}>
-                {text}
-              </Heading>
-            </VStack>
-            <HStack spacing={10}>
-              <Icon as={icon} color={color} fontSize={22} />
-              <Icon
-                as={star}
-                fontSize={20}
-                onMouseEnter={handleMouseEnter}
-                color="yellow.600"
-                style={{
-                  cursor: isHovering ? "pointer" : "default",
-                  transition: isHovering ? "top ease 0.5s" : "",
-                }}
-              />
-            </HStack>
-          </Flex>
-        </ListItem>
-      );
-    });
-
-    setRenderData(render);
-  }, [data]);
-
   const [isHovering, setHovering] = useState(false);
-
   const handleMouseEnter = () => setHovering(true);
 
   return (
@@ -157,27 +80,11 @@ export default function UserReports() {
         {/* Right section */}
         {showData && (
           <GridItem w="100%" h="90%" colSpan={1}>
-            <Card>
-              <Flex justify="space-between" align="center">
-                <Heading
-                  fontSize={{
-                    base: "2xl",
-                  }}
-                >
-                  {data.name}
-                </Heading>
-                <CloseButton
-                  w="30px"
-                  h="30px"
-                  color={brandColor}
-                  onClick={() => {
-                    setShowData(false);
-                  }}
-                />
-              </Flex>
-              <Divider mt={4} mb={8} />
-              <List spacing={3}>{renderData}</List>
-            </Card>
+            <LeftPanel
+              data={data}
+              brandColor={brandColor}
+              setShowData={setShowData}
+            />
           </GridItem>
         )}
       </Grid>
