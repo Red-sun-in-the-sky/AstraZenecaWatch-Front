@@ -5,6 +5,9 @@
 
 ## Get started and run your custom status page dashboard.
 
+## You can test the prototype here 
+https://az-watch.web.app/#/auth/login
+
 ### Introduction
 
 Everything for the administration and monitoring of your system's services. With this application, you can do the following:
