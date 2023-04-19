@@ -18,15 +18,10 @@ export default function Default(props: {
   growth?: string | number;
   value: string | number;
   setShowGroupBTGs: any;
+  style?: any;
 }) {
-  const {
-    startContent,
-    endContent,
-    name,
-    growth,
-    value,
-    setShowGroupBTGs,
-  } = props;
+  const { startContent, endContent, name, growth, value, setShowGroupBTGs } =
+    props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "secondaryGray.600";
 
@@ -41,6 +36,7 @@ export default function Default(props: {
   return (
     <Card
       py="15px"
+      my={{ sm: "20px", lg: "0" }}
       style={{
         cursor: isHovering ? "pointer" : "default",
         top: isHovering ? "-2px" : "",

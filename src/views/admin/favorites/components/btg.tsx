@@ -65,6 +65,7 @@ export const BTGComponentFavorites = (props: {
   return (
     <>
       <SimpleGrid
+        mt={10}
         columns={{ base: 1, md: 1, lg: 1, "2xl": 2 }}
         gap="20px"
         mb="20px"
