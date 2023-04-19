@@ -125,6 +125,7 @@ export const LeftPanel = (props: {
   // Render BTG services
   useEffect(() => {
     data.type === "btg" ? btgLoadData() : ticketLoadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (
@@ -138,6 +139,7 @@ export const LeftPanel = (props: {
           {data?.name || ""}
         </Heading>
         <CloseButton
+          size="lg"
           w="30px"
           h="30px"
           color={brandColor}

@@ -6,6 +6,12 @@ import {
   HStack,
   Tag,
   TagLabel,
+  Hide,
+  Show,
+  Modal,
+  useDisclosure,
+  ModalContent,
+  ModalOverlay,
 } from "@chakra-ui/react";
 import { BTGComponent } from "./btg";
 import { TicketComponent } from "./ticket";
@@ -25,10 +31,15 @@ export default function UserReports() {
   const [isHovering, setHovering] = useState(false);
   const handleMouseEnter = () => setHovering(true);
 
+  const { onClose } = useDisclosure();
+
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
-      <Grid gap={10} templateColumns="repeat(2, 1fr)">
-        <GridItem w="100%" h="10" colSpan={1}>
+      <Grid
+        gap={10}
+        templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
+      >
+        <GridItem w="100%" h="10" colSpan="auto">
           <HStack spacing={4} mb={4}>
             <Tag
               size="lg"
@@ -79,13 +90,29 @@ export default function UserReports() {
         </GridItem>
         {/* Right section */}
         {showData && (
-          <GridItem w="100%" h="90%" colSpan={1}>
-            <LeftPanel
-              data={data}
-              brandColor={brandColor}
-              setShowData={setShowData}
-            />
-          </GridItem>
+          <Hide below="md">
+            <GridItem w="100%" h="90%" colSpan="auto">
+              <LeftPanel
+                data={data}
+                brandColor={brandColor}
+                setShowData={setShowData}
+              />
+            </GridItem>
+          </Hide>
+        )}
+        {showData && (
+          <Show below="md">
+            <Modal isOpen={showData} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <LeftPanel
+                  data={data}
+                  brandColor={brandColor}
+                  setShowData={setShowData}
+                />
+              </ModalContent>
+            </Modal>
+          </Show>
         )}
       </Grid>
     </Box>

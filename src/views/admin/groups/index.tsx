@@ -6,10 +6,16 @@ import {
   Flex,
   Grid,
   GridItem,
+  Hide,
   Icon,
   IconButton,
+  Modal,
+  ModalContent,
+  ModalOverlay,
+  Show,
   SimpleGrid,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import GroupsCard from "views/admin/groups/components/GroupsCard";
 import { SearchBar } from "components/navbar/searchBar/SearchBar";
@@ -33,6 +39,8 @@ export default function Groups() {
   const [showData, setShowData] = useState(false);
   const [showGroupBTGs, setShowGroupBTGs] = useState(false);
 
+  const { onClose } = useDisclosure();
+
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
       {!showGroupBTGs && (
@@ -45,12 +53,13 @@ export default function Groups() {
           <Flex
             w={{ sm: "100%", md: "auto" }}
             alignItems="center"
+            mb={8}
             bg={menuBg}
             justifyContent="space-between"
             p="10px"
             borderRadius="30px"
             boxShadow={shadow}
-            flexWrap={{ base: "wrap", md: "nowrap" }}
+            flexWrap={{ base: "wrap", md: "nowrap", sm: "inherit" }}
           >
             <SearchBar />
             <ButtonGroup spacing="2">
@@ -63,8 +72,8 @@ export default function Groups() {
 
           {/* BTGs */}
           <SimpleGrid
-            columns={3}
-            gap={{ base: "20px", xl: "20px" }}
+            columns={{ sm: 1, md: 2, lg: 3 }}
+            gap={{ base: "20px", md: "20px", xl: "20px" }}
             mb="20px"
             display={{ base: "block", xl: "grid" }}
           >
@@ -82,6 +91,7 @@ export default function Groups() {
               }
               value="DEV_MX"
             />
+
             <GroupsCard
               setShowGroupBTGs={setShowGroupBTGs}
               startContent={
@@ -114,45 +124,65 @@ export default function Groups() {
         </Grid>
       )}
       {showGroupBTGs && (
-        <SimpleGrid
-          columns={1}
-          gap={{ base: "20px", xl: "20px" }}
-          mb="20px"
-          display={{ base: "block", xl: "grid" }}
-        >
+        <>
           <Box>
             <IconButton
+              size="lg"
+              fontSize={26}
               onClick={() => setShowGroupBTGs(false)}
               aria-label={"Go back"}
               icon={<Icon as={MdArrowBack} />}
             />
           </Box>
-          <Grid
-            mb="20px"
-            templateColumns={{ xl: "repeat(2, 1fr)", "2xl": "1fr 0.46fr" }}
+          <SimpleGrid
+            columns={1}
             gap={{ base: "20px", xl: "20px" }}
+            mb="20px"
             display={{ base: "block", xl: "grid" }}
           >
-            {/* BTGs section */}
-            <BTGComponentFavorites
-              boxBg={boxBg}
-              brandColor={brandColor}
-              setData={setData}
-              setShowData={setShowData}
-            />
+            <Grid
+              mb="20px"
+              templateColumns={{ xl: "repeat(2, 1fr)", "2xl": "1fr 0.46fr" }}
+              gap={{ base: "20px", xl: "20px" }}
+              display={{ base: "block", xl: "grid" }}
+            >
+              {/* BTGs section */}
+              <BTGComponentFavorites
+                boxBg={boxBg}
+                brandColor={brandColor}
+                setData={setData}
+                setShowData={setShowData}
+              />
 
-            {/* Services section */}
-            {showData && (
-              <GridItem w="100%" h="90%" colSpan={1}>
-                <RightPanel
-                  data={data}
-                  brandColor={brandColor}
-                  setShowData={setShowData}
-                />
-              </GridItem>
-            )}
-          </Grid>
-        </SimpleGrid>
+              {/* Services section */}
+              {showData && (
+                <Hide below="md">
+                  <GridItem w="100%" h="90%" colSpan={1} mt={9}>
+                    <RightPanel
+                      data={data}
+                      brandColor={brandColor}
+                      setShowData={setShowData}
+                    />
+                  </GridItem>
+                </Hide>
+              )}
+              {showData && (
+                <Show below="md">
+                  <Modal isOpen={showData} onClose={onClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                      <RightPanel
+                        data={data}
+                        brandColor={brandColor}
+                        setShowData={setShowData}
+                      />
+                    </ModalContent>
+                  </Modal>
+                </Show>
+              )}
+            </Grid>
+          </SimpleGrid>
+        </>
       )}
     </Box>
   );
